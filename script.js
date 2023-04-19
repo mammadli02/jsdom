@@ -44,23 +44,7 @@ function addTaskToPage(arrayOfTasks) {
         tasksDiv.appendChild(div)
     });
 }
-function addElementsToPageFrom(arrayOfTasks) {
-    tasksDiv.innerHTML = "";
-    arrayOfTasks.forEach((task) => {
-        let div = document.createElement("div");
-        div.className = "task";
-        if (task.completed) {
-            div.className = "task done";
-        }
-        div.setAttribute("data-id", task.id);
-        div.innerHTML += `${task.title}`;
-        let span = document.createElement("span");
-        span.className = "del";
-        span.append("Delete");
-        div.appendChild(span);
-        tasksDiv.appendChild(div);
-    });
-}
+
 tasksDiv.addEventListener("click", ((e) => {
     if (e.target.classList.contains("del")) {
         if (window.confirm("Are you sure to delete?")) {
@@ -69,9 +53,7 @@ tasksDiv.addEventListener("click", ((e) => {
             count.innerHTML = `You have ${--arrayOfTasks.length} pending tasks`
         }
     }
-    if (e.target.classList.contains("task")) {
-        e.target.classList.toggle("done");
-    }
+   
 }))
 deleteAll.addEventListener("click", function (e) {
     tasksDiv.innerHTML = "";
