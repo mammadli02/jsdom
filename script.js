@@ -19,7 +19,7 @@ submit.addEventListener("click", function () {
 function addTaskToArray(taskText) {
     const task = {
         title: taskText,
-        complated: false,
+    
     };
     arrayOfTasks.push(task);
     count.innerHTML = `You have ${arrayOfTasks.length} pending tasks`
@@ -32,9 +32,7 @@ function addTaskToPage(arrayOfTasks) {
         let div = document.createElement("div");
         div.className = "task";
 
-        if (task.complated) {
-            div.className = "task done";
-        }
+       
         div.setAttribute("data-id", task.id);
      div.innerHTML += `${task.title}`
         let span = document.createElement("span");
